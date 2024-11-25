@@ -5,22 +5,22 @@
 DEFAULT_ANVIL_KEY := 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
 
 help:
-	@echo "Usage:"
-	@echo "  make deploy [ARGS=...]\n    example: make deploy ARGS=\"--network sepolia\""
+	@echo "Uso:"
+	@echo "  make deploy [ARGS=...]\n    exemplo: make deploy ARGS=\"--network sepolia\""
 	@echo ""
-	@echo "  make fund [ARGS=...]\n    example: make deploy ARGS=\"--network sepolia\""
+	@echo "  make fund [ARGS=...]\n    exemplo: make deploy ARGS=\"--network sepolia\""
 
 all: clean remove install update build
 
-# Clean the repo
+# Limpar o repositório
 clean  :; forge clean
 
-# Remove modules
-remove :; rm -rf .gitmodules && rm -rf .git/modules/* && rm -rf lib && touch .gitmodules && git add . && git commit -m "modules"
+# Remover módulos
+remove :; rm -rf .gitmodules && rm -rf .git/modules/* && rm -rf lib && touch .gitmodules && git add . && git commit -m "módulos"
 
 install :; forge install cyfrin/foundry-devops@0.2.3 --no-commit && forge install smartcontractkit/chainlink-brownie-contracts@0.6.1 --no-commit && forge install foundry-rs/forge-std@v1.7.1 --no-commit && forge install openzeppelin/openzeppelin-contracts@v4.9.3 --no-commit
 
-# Update Dependencies
+# Atualizar Dependências
 update:; forge update
 
 build:; forge build
